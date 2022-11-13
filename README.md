@@ -6,6 +6,7 @@ Backend
 PosgreSQL database
 
 Launch Guide.
+
 Open the application via visual studio. In the “appsettings.json” file, change the "ConnectionStrings" of Host, Username and Password to connect to the database. In the package manager console type "update-database". The application is ready to run.
 
 Frontend
