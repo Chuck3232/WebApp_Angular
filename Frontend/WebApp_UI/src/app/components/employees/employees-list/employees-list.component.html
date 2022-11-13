@@ -1,0 +1,50 @@
+<div class="container my-5">
+    <h1 class="mb-3">Employees</h1>  
+    <table class="table" *ngIf="employees">
+        <thead>
+            <tr>
+                <th>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Employee Name</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                            [(ngModel)]="employeeName"
+                            (keyup)="findWithParams()"
+                            placeholder="Search by Employee Name">             
+                    </div>                
+                </th>
+                <th>
+                    <span>Date After</span>
+                    <div class="input-group mb-2">                       
+                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                            [(ngModel)]="dateIn"
+                            (change)="findWithParams()">             
+                    </div>
+                    <span>Date Before</span>
+                    <div class="input-group mb-2">                   
+                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                            [(ngModel)]="dateOut"
+                            (change)="findWithParams()">             
+                    </div>  
+                </th>
+                <th>
+                    <span>Performance Manager</span>
+                    <select name="Manager" class="form-control" [(ngModel)]="managerName" (change)="findWithParams()">
+                        <option>--select--</option>
+                        <option *ngFor="let manager of managersList">
+                            {{ manager }}
+                        </option>
+                    </select>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+              <th>{{ employee.employeeName }}</th>
+              <th>{{ employee.hireDate }}</th>
+              <th>{{ employee.performanceManager }}</th>
+          </tr>  
+        </tbody>
+    </table>
+    <p *ngIf="!employees"> No Employees Found</p>
+</div>
