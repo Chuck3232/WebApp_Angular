@@ -13,4 +13,5 @@ Frontend
 
 Angular CLI version 14.2.9.
 Open the location of the main folder, in the terminal type the commands "npm install" and "ng serve". The application should run on port http://localhost:4200/.
+If the server started on a port other than https://localhost:44348, change the "baseApiUrl" in the "environments" folder of the "environment.ts" file to the one under which the backend is currently running.
 
